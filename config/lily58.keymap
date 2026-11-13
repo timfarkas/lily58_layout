@@ -13,7 +13,7 @@
     macros {
         // globe(fn)+space for whisper_stt's "<fn>+<space>" hotkey. GLOBE is a consumer key, not a
         // modifier, so LG()-style wrapping can't work. held until release, so stt's hold mode works too.
-        // ASSUMPTION (untested): macOS sets kCGEventFlagMaskSecondaryFn for ZMK's GLOBE. if not, swap to F18.
+        // verified 2026-11-13 on macOS 26.6: ZMK GLOBE does set kCGEventFlagMaskSecondaryFn, so stt sees fn+space.
         fn_spc: fn_spc {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
