@@ -1,0 +1,121 @@
+# keymap-drawer style for the keyhelp overlay: transparent bg, light-on-glass keys, mac glyphs.
+# render with ./render.sh (keymap -> transparent png). the glass itself comes from the swift app.
+parse_config:
+  raw_binding_map:
+    "&fn_spc": {t: "fn+␣", s: dictate}
+  zmk_keycode_map:  # keymap-drawer defaults (overriding the map replaces them) + mac glyphs at the end
+    EXCLAMATION: '!'
+    EXCL: '!'
+    AT_SIGN: '@'
+    AT: '@'
+    HASH: '#'
+    POUND: '#'
+    DOLLAR: $
+    DLLR: $
+    PERCENT: '%'
+    PRCNT: '%'
+    CARET: ^
+    AMPERSAND: '&'
+    AMPS: '&'
+    ASTERISK: '*'
+    ASTRK: '*'
+    STAR: '*'
+    LEFT_PARENTHESIS: (
+    LPAR: (
+    RIGHT_PARENTHESIS: )
+    RPAR: )
+    EQUAL: '='
+    PLUS: +
+    MINUS: '-'
+    UNDERSCORE: _
+    UNDER: _
+    SLASH: /
+    FSLH: /
+    QUESTION: '?'
+    QMARK: '?'
+    BACKSLASH: \
+    BSLH: \
+    PIPE: '|'
+    NON_US_BACKSLASH: \
+    PIPE2: '|'
+    NON_US_BSLH: '|'
+    SEMICOLON: ;
+    SEMI: ;
+    COLON: ':'
+    SINGLE_QUOTE: ''''
+    SQT: ''''
+    APOSTROPHE: ''''
+    APOS: ''''
+    DOUBLE_QUOTES: '"'
+    DQT: '"'
+    COMMA: ','
+    LESS_THAN: <
+    LT: <
+    PERIOD: .
+    DOT: .
+    GREATER_THAN: '>'
+    GT: '>'
+    LEFT_BRACKET: '['
+    LBKT: '['
+    LEFT_BRACE: '{'
+    LBRC: '{'
+    RIGHT_BRACKET: ']'
+    RBKT: ']'
+    RIGHT_BRACE: '}'
+    RBRC: '}'
+    GRAVE: '`'
+    TILDE: '~'
+    NON_US_HASH: '#'
+    NUHS: '#'
+    TILDE2: '~'
+    LSHFT: ⇧
+    RSHFT: ⇧
+    LCTRL: ⌃
+    LALT: ⌥
+    LGUI: ⌘
+    RGUI: ⌘
+    RET: ⏎
+    BSPC: ⌫
+    SPACE: ␣
+    TAB: ⇥
+    ESC: esc
+    KP_MULTIPLY: "*"
+    KP_PLUS: "+"
+    LEFT: ←
+    RIGHT: →
+    UP: ↑
+    DOWN: ↓
+    F19: help
+draw_config:
+  key_rx: 11.0
+  inner_pad_w: 3.0
+  inner_pad_h: 3.0
+  append_colon_to_layer_header: false
+  outer_pad_w: 2.0
+  outer_pad_h: 34.0
+  svg_extra_style: |
+    svg.keymap {
+      font-family: "SF Pro Rounded", "SF Pro Text", "Helvetica Neue", sans-serif;
+      font-size: 17px;
+      fill: rgba(255,255,255,0.96);
+      font-weight: 600;
+    }
+    /* real keys: smoky caps with a faint rim, like little glass tiles */
+    rect.key, rect.combo {
+      fill: rgba(255,255,255,0.10);
+      stroke: rgba(255,255,255,0.20);
+      stroke-width: 1;
+    }
+    /* empty (transparent) keys: hairline ghosts so the real keys pop */
+    rect.key.trans { fill: none; stroke: rgba(255,255,255,0.07); }
+    text.trans { fill: transparent; }
+    rect.held, rect.combo.held { fill: rgba(10,132,255,0.75); stroke: rgba(150,205,255,0.9); }
+    text.label {
+      fill: rgba(255,255,255,0.5);
+      stroke: none;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 4px;
+    }
+    text.hold, text.shifted { fill: rgba(255,255,255,0.5); font-size: 10px; font-weight: 500; }
+    text.layer-activator { text-decoration: none; fill: #64d2ff; font-weight: 700; }
